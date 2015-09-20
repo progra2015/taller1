@@ -1,0 +1,59 @@
+
+import java.util.Scanner;
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author JEKAJAR
+ */
+
+import java.util.*;
+
+	public class Integers {
+	static void isPair(int x){
+		if((x%2) == 0){
+			System.out.println("El numero " + x + " es par");
+		}
+		else
+			System.out.println("El numero " + x + " es impar");
+	}
+	
+	static void compare(int x, int y){
+		if( x == y )
+			System.out.println("Ambos nÃºmeros son iguales");
+		if( x > y )
+			System.out.println("El nÃºmero "+ x + " es mayor que "+ y);
+		if( y > x)
+			System.out.println("El nÃºmero "+ y + " es mayor que "+ x);
+	}
+	
+	static void isMultiple(int x, int y){
+		if((x%y) == 0){
+			System.out.println(x+" es mÃºltiplo de "+ y);
+		}
+		else
+			System.out.println(x+" no es mÃºltiplo de "+ y);
+	}
+	
+	
+	public static void main(String[] args) {
+		int numero1, numero2;
+		
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("Ingrese el primer nÃºmero");
+		numero1 = userInput.nextInt();
+		System.out.println("Ingrese el segundo nÃºmero");
+		numero2 = userInput.nextInt();
+		isPair(numero1);
+		isPair(numero2);
+		compare(numero1, numero2);
+		isMultiple( numero1, numero2 );
+	}
+}
+
+
+
