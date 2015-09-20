@@ -1,0 +1,85 @@
+package HangMan;
+
+import java.util.Random;
+import java.util.Scanner;
+public class HangMan {
+	public static void main( String args[] ){
+		String wordList[] = { "programa", "estilo", "inteligente", "actividad", "carrera", "evolucion" };				
+	
+		Random randomGenerator = new Random();
+		Scanner reader = new Scanner( System.in );
+		
+		String letter;
+		int randomIndex = randomGenerator.nextInt(6);
+		
+		int number = wordList[3].length();
+		int counter = 0;
+		char charArray[] = new char[number];
+		String inputFailedArray[] = new String[7];
+		char figureArray[] = { ' ','q', '(', 'X', '_', 'X', ')', 'p'};
+		
+		for( int i = 0; i < charArray.length; i++ )
+                    
+			charArray[i] = '_';
+               
+		
+		for( int i = 0; i < number; i++ )
+			System.out.printf( " %c", charArray[i] );
+		System.out.println();
+		
+		
+		for( int i = 0; i < wordList[3].length() + 7 ; i++ ){
+			boolean flag = false;
+                        System.out.println( "Iniciando el juego que tengas buena suerte : " );
+			System.out.println( "Por favor ingresar una letra : " );
+			letter = reader.nextLine();
+			for( int j = 0; j < number; j++ ){
+				if( letter.charAt(0) == wordList[3].charAt(j) ){
+					charArray[j] = letter.charAt(0);
+					flag = true;
+				}
+			}
+			if( flag == false ){
+				inputFailedArray[counter] = letter;
+				counter++;
+			}
+			
+			if( counter == 7 ){
+				System.out.println( " Señor usuario haz fallado, piensa mejor para la próxima " );
+				break;
+			}
+			
+			for( int k = 0; k < number; k++ )
+				System.out.printf( " %c", charArray[k] );
+			System.out.print( "		" );
+			
+			for( int k = 1; k <= counter; k++ )
+				System.out.print( figureArray[k] );
+			System.out.print( "		" );
+			
+			System.out.print( "Haz utilizado las siguientes letras, fijate y cambia: " );
+			for( int k = 0; k < counter; k++ )
+				System.out.printf( " %s", inputFailedArray[k] );
+			System.out.print( "		" );
+			System.out.println();
+			
+			
+	
+			
+		
+		}
+	}
+	public static boolean compare(String array1[], String array2[]){
+		boolean bandera = false;
+		for (int i = 0; i < array1.length; i++)
+			for (int j = 0; j < array2.length; j++)
+				if (array1[i] != array2[j] )
+					bandera = true;
+		if (bandera == true)
+			return false;
+		else 
+			return true;
+		
+	}
+}
+	
