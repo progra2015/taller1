@@ -1,0 +1,44 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author JEKAJAR
+ */
+
+import java.util.*;
+
+public class Average {
+    
+	
+	static void average(Stack<Integer> stack){
+		float average = 0;
+		int numElements = stack.size();
+		while(!stack.isEmpty()){
+			average = average + stack.pop(); 
+		}
+		average = average / numElements;
+		System.out.println("El promedio es " + average);
+	}
+	
+	public static void main(String[] args) {
+		boolean next = true;
+		int number;
+		Stack<Integer> stack = new Stack<Integer>();
+		Scanner userInput = new Scanner(System.in);
+		while(next){
+			System.out.println("Ingrese un nÃºmero: ");
+			number = userInput.nextInt();
+			if ( number == 9999){
+				next = false;
+				average(stack);
+			}
+			stack.push(new Integer(number));
+		}
+		
+		System.out.println("End");
+	}
+
+}
